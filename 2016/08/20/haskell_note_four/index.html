@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <title>HASKELL学习笔记（四） | 顾小骨的blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="递归递归的套路无非就是先定义一个边界条件，再定义个函数，让它从一堆元素中取一个并做点事情后，把余下的元素重新交给这个函数。来看一段快排的代码">
+<meta property="og:type" content="article">
+<meta property="og:title" content="HASKELL学习笔记（四）">
+<meta property="og:url" content="http://yoursite.com/2016/08/20/haskell_note_four/index.html">
+<meta property="og:site_name" content="顾小骨的blog">
+<meta property="og:description" content="递归递归的套路无非就是先定义一个边界条件，再定义个函数，让它从一堆元素中取一个并做点事情后，把余下的元素重新交给这个函数。来看一段快排的代码">
+<meta property="og:updated_time" content="2016-08-20T13:35:55.939Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="HASKELL学习笔记（四）">
+<meta name="twitter:description" content="递归递归的套路无非就是先定义一个边界条件，再定义个函数，让它从一堆元素中取一个并做点事情后，把余下的元素重新交给这个函数。来看一段快排的代码">
+  
+    <link rel="alternative" href="/atom.xml" title="顾小骨的blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.ico">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="/avatar.jpg" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">顾小骨</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">爱折腾，码畜一枚</p>
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						
+						<li>关于我</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+							<li><a href="/tags/随笔/">随笔</a></li>
+				        
+							<li><a href="/tags/leetcode/">leetcode</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="https://github.com/guzheyuan" title="github">github</a>
+					        
+								<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/gu-xiao-gu-30-90" title="zhihu">zhihu</a>
+					        
+								<a class="mail" target="_blank" href="mailto:guzheyuan1991@163.com" title="mail">mail</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/haskell/" style="font-size: 20px;">haskell</a> <a href="/tags/leetcode/" style="font-size: 15px;">leetcode</a> <a href="/tags/随笔/" style="font-size: 10px;">随笔</a>
+					</div>
+				</section>
+				
+				
+				
+
+				
+				
+				<section class="switch-part switch-part3">
+				
+					<div id="js-aboutme">上海大学 计算机工程与科学，后端码畜一枚</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">顾小骨</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+			
+				<img lazy-src="/avatar.jpg" class="js-avatar">
+			
+			</div>
+			<hgroup>
+			  <h1 class="header-author">顾小骨</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">爱折腾，码畜一枚</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+					<li><a href="/tags/随笔/">随笔</a></li>
+		        
+					<li><a href="/tags/leetcode/">leetcode</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/guzheyuan" title="github">github</a>
+			        
+						<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/gu-xiao-gu-30-90" title="zhihu">zhihu</a>
+			        
+						<a class="mail" target="_blank" href="mailto:guzheyuan1991@163.com" title="mail">mail</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap"><article id="post-haskell_note_four" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/08/20/haskell_note_four/" class="article-date">
+  	<time datetime="2016-08-20T13:35:00.000Z" itemprop="datePublished">2016-08-20</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      HASKELL学习笔记（四）
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/haskell/">haskell</a></li></ul>
+	</div>
+
+        
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="递归"><a href="#递归" class="headerlink" title="递归"></a>递归</h2><p>递归的套路无非就是先定义一个边界条件，再定义个函数，让它从一堆元素中取一个并做点事情后，把余下的元素重新交给这个函数。<br>来看一段快排的代码<a id="more"></a><br><figure class="highlight haskell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="title">quicksort</span> :: (<span class="type">Ord</span> a) =&gt; [a] -&gt; [a]   </div><div class="line"><span class="title">quicksort</span> [] = []   </div><div class="line"><span class="title">quicksort</span> (x:xs) =   </div><div class="line">  <span class="keyword">let</span> smallerSorted = quicksort [a | a &lt;- xs, a &lt;= x]  </div><div class="line">       biggerSorted = quicksort [a | a &lt;- xs, a &gt; x]   </div><div class="line">  <span class="keyword">in</span> smallerSorted ++ [x] ++ biggerSorted</div></pre></td></tr></table></figure></p>
+<h2 id="柯里函数"><a href="#柯里函数" class="headerlink" title="柯里函数"></a>柯里函数</h2><p>当函数可以作为参数和返回值传来传去的时候，会产生很多有趣的特性，比如，在haskell中，所有函数都可以看作只有一个参数，所有多个参数的函数都是柯里函数<br>比如：<br><figure class="highlight haskell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="title">ghci</span>&gt; max <span class="number">4</span> <span class="number">5</span> </div><div class="line"><span class="number">5</span> </div><div class="line"><span class="title">ghci</span>&gt; (max <span class="number">4</span>) <span class="number">5</span> </div><div class="line"><span class="number">5</span></div></pre></td></tr></table></figure></p>
+<p>两者是完全等价的，max 4返回了一个函数，这个函数返回4与参数之间较大的那个</p>
+<h2 id="高阶函数"><a href="#高阶函数" class="headerlink" title="高阶函数"></a>高阶函数</h2><p>就是参数是函数的函数<br>这里介绍map和filter<br>map取一个函数和List做参数，遍历该List的每个元素来调用该函数产生一个新的List。看下它的类型声明和实现:<br><figure class="highlight haskell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="title">map</span> :: (a -&gt; b) -&gt; [a] -&gt; [b]   </div><div class="line"><span class="title">map</span> _ [] = []   </div><div class="line"><span class="title">map</span> f (x:xs) = f x : map f xs</div></pre></td></tr></table></figure></p>
+<p>filter函数取一个限制条件和一个List，返回该List中所有符合该条件的元素。 它的类型声明及实现大致如下:<br><figure class="highlight haskell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="title">filter</span> :: (a -&gt; <span class="type">Bool</span>) -&gt; [a] -&gt; [a]   </div><div class="line"><span class="title">filter</span> _ [] = []   </div><div class="line"><span class="title">filter</span> p (x:xs)    </div><div class="line">    | p x       = x : filter p xs   </div><div class="line">    | otherwise = filter p xs</div></pre></td></tr></table></figure></p>
+<h2 id="lambda"><a href="#lambda" class="headerlink" title="lambda"></a>lambda</h2><p>lambda就是匿名函数。就是用完一次就扔所以也不需要名字的函数（误）</p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2016/08/10/haskell_note_three/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">HASKELL学习笔记（三）</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="haskell_note_four" data-title="HASKELL学习笔记（四）" data-url="http://yoursite.com/2016/08/20/haskell_note_four/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"guzheyuan"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2016 顾小骨
+    	</div>
+      	<div class="footer-right">
+      		由 <a href="http://hexo.io/" target="_blank">Hexo</a> 强力驱动
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>
