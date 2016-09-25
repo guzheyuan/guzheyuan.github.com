@@ -4,18 +4,18 @@
   <meta charset="utf-8">
   
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <title>Hello World | 顾小骨的blog</title>
+  <title>《Real World Haskell》 第三章读书笔记 | 顾小骨的blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Welcome to my bolg!折腾了好几天，这个基于hexo博客终于算是搭建起来了。当打下带有自己名字拼音的域名，看到自己的博客加载下来的时候，有种说不清的满足感。">
+  <meta name="description" content="CHAPTER 3：定义类型，简化函数">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="http://yoursite.com/2016/07/24/hello_world/index.html">
+<meta property="og:title" content="《Real World Haskell》 第三章读书笔记">
+<meta property="og:url" content="http://yoursite.com/2016/09/17/real_world_haskell_note_ch3/index.html">
 <meta property="og:site_name" content="顾小骨的blog">
-<meta property="og:description" content="Welcome to my bolg!折腾了好几天，这个基于hexo博客终于算是搭建起来了。当打下带有自己名字拼音的域名，看到自己的博客加载下来的时候，有种说不清的满足感。">
-<meta property="og:updated_time" content="2016-08-12T15:48:37.294Z">
+<meta property="og:description" content="CHAPTER 3：定义类型，简化函数">
+<meta property="og:updated_time" content="2016-09-19T15:22:50.550Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hello World">
-<meta name="twitter:description" content="Welcome to my bolg!折腾了好几天，这个基于hexo博客终于算是搭建起来了。当打下带有自己名字拼音的域名，看到自己的博客加载下来的时候，有种说不清的满足感。">
+<meta name="twitter:title" content="《Real World Haskell》 第三章读书笔记">
+<meta name="twitter:description" content="CHAPTER 3：定义类型，简化函数">
   
     <link rel="alternative" href="/atom.xml" title="顾小骨的blog" type="application/atom+xml">
   
@@ -180,11 +180,11 @@
 	</div>
 </nav>
 
-      <div class="body-wrap"><article id="post-hello_world" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-real_world_haskell_note_ch3" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/07/24/hello_world/" class="article-date">
-  	<time datetime="2016-07-24T14:55:00.000Z" itemprop="datePublished">2016-07-24</time>
+      <a href="/2016/09/17/real_world_haskell_note_ch3/" class="article-date">
+  	<time datetime="2016-09-17T14:12:00.000Z" itemprop="datePublished">2016-09-17</time>
 </a>
     </div>
   
@@ -197,7 +197,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Hello World
+      《Real World Haskell》 第三章读书笔记
     </h1>
   
 
@@ -206,7 +206,7 @@
       <div class="article-info article-info-post">
         
 	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/随笔/">随笔</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/haskell/">haskell</a></li></ul>
 	</div>
 
         
@@ -217,8 +217,17 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Welcome to my bolg!<br>折腾了好几天，这个基于hexo博客终于算是搭建起来了。当打下带有自己名字拼音的域名，看到自己的博客加载下来的时候，有种说不清的满足感。<br><a id="more"></a><br>希望自己能够在这片属于自己的空间上好好沉淀。<br>keep learning，keep growing</p>
-<p>ps：感谢Litten大大，yilia主题非常好看！地址：<a href="https://github.com/litten/hexo-theme-yilia" target="_blank" rel="external">https://github.com/litten/hexo-theme-yilia</a></p>
+        <h1 id="CHAPTER-3：定义类型，简化函数"><a href="#CHAPTER-3：定义类型，简化函数" class="headerlink" title="CHAPTER 3：定义类型，简化函数"></a>CHAPTER 3：定义类型，简化函数</h1><a id="more"></a>
+<h2 id="定义一个新的数据类型"><a href="#定义一个新的数据类型" class="headerlink" title="定义一个新的数据类型"></a>定义一个新的数据类型</h2><p>data关键字用于定义新的数据类型<br><figure class="highlight armasm"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="symbol">data</span> <span class="keyword">BookInfo </span>= <span class="keyword">Book </span>Int <span class="keyword">String </span>[<span class="keyword">String] </span></div><div class="line">     deriving (Show)</div></pre></td></tr></table></figure></p>
+<p>值构造器&amp;类型构造器<br>值构造器和类型构造器可以同名</p>
+<h2 id="类型的别名"><a href="#类型的别名" class="headerlink" title="类型的别名"></a>类型的别名</h2><p>type关键字用于设置类型别名<br><figure class="highlight haskell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">type</span> <span class="type">CustomerID</span> = <span class="type">Int</span></span></div><div class="line"><span class="class"><span class="keyword">type</span> <span class="type">ReviewBody</span> = <span class="type">String</span></span></div><div class="line"><span class="class"><span class="keyword">data</span> <span class="type">BetterReview</span> = <span class="type">BetterReview</span> <span class="type">BookInfo</span> <span class="type">CustomerID</span> <span class="type">ReviewBody</span></span></div></pre></td></tr></table></figure></p>
+<h2 id="代数数据类型"><a href="#代数数据类型" class="headerlink" title="代数数据类型"></a>代数数据类型</h2><p>C 结构和 Haskell 的代数数据类型最大的差别是，代数数据类型的成分是匿名且按位置排序的</p>
+<h2 id="模式匹配"><a href="#模式匹配" class="headerlink" title="模式匹配"></a>模式匹配</h2><p>本质上就是匹配值构造器，并将传给构造器的值绑定到变量上。<br>因为模式匹配的过程就像是逆转一个值的构造（construction）过程，因此它有时候也被称为解构（deconstruction）。<br>模式匹配的“深度”并没有限制。<br>在给一个类型写一组匹配模式时，一定要涵盖构造器的所有可能情况。</p>
+<h2 id="记录语法（Record-Syntax）"><a href="#记录语法（Record-Syntax）" class="headerlink" title="记录语法（Record Syntax）"></a>记录语法（Record Syntax）</h2><p>定义一种数据类型的同时，定义好每个成分的访问器。<br>访问器的本质是一个函数。</p>
+<h2 id="参数化类型（Parameterized-Types）"><a href="#参数化类型（Parameterized-Types）" class="headerlink" title="参数化类型（Parameterized Types）"></a>参数化类型（Parameterized Types）</h2><p>即范型，是类型的多态</p>
+<h2 id="递归类型"><a href="#递归类型" class="headerlink" title="递归类型"></a>递归类型</h2><p>比如List:<br><figure class="highlight haskell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">data</span> <span class="type">List</span> a = <span class="type">Cons</span> a (<span class="type">List</span> <span class="title">a</span>) </span></div><div class="line">            | <span class="type">Nil</span> </div><div class="line">              <span class="keyword">deriving</span> (<span class="type">Show</span>)</div></pre></td></tr></table></figure></p>
+<p>即它用自己来定义自己。</p>
+<p>参考：<br><a href="http://book.realworldhaskell.org/" target="_blank" rel="external">《Real World Haskell》 Bryan O’Sullivan, Don Stewart, and John Goerzen</a><br><a href="http://cnhaskell.com/chp/2.html" target="_blank" rel="external">《Real World Haskell》 中文翻译项目</a></p>
 
       
     </div>
@@ -228,15 +237,20 @@
     
 <nav id="article-nav">
   
-    <a href="/2016/07/25/leetcode_4_median_of_two_sorted_arrays/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2016/09/22/haskell_what_is_WHNF/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption"><</strong>
       <div class="article-nav-title">
         
-          leetcode: 4.Median of Two Sorted Arrays
+          （译）Haskell中的WHNF
         
       </div>
     </a>
   
+  
+    <a href="/2016/09/13/real_world_haskell_note_ch2/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">《Real World Haskell》 第二章读书笔记</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
   
 </nav>
 
@@ -250,7 +264,7 @@
 
 <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="hello_world" data-title="Hello World" data-url="http://yoursite.com/2016/07/24/hello_world/"></div>
+	<div class="ds-thread" data-thread-key="real_world_haskell_note_ch3" data-title="《Real World Haskell》 第三章读书笔记" data-url="http://yoursite.com/2016/09/17/real_world_haskell_note_ch3/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">

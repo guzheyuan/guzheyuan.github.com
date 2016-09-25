@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <title>Ninety Nine Haskell Problems（一） | 顾小骨的blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="《Learn You a Haskell for Great Good!》过了一遍，感觉还是没有上手，于是去找了下看看有没有练手的题目可以实践实践，于是就有了这个。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Ninety Nine Haskell Problems（一）">
+<meta property="og:url" content="http://yoursite.com/2016/08/26/ninety_nine_haskell_problems_1/index.html">
+<meta property="og:site_name" content="顾小骨的blog">
+<meta property="og:description" content="《Learn You a Haskell for Great Good!》过了一遍，感觉还是没有上手，于是去找了下看看有没有练手的题目可以实践实践，于是就有了这个。">
+<meta property="og:updated_time" content="2016-09-02T16:44:34.318Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Ninety Nine Haskell Problems（一）">
+<meta name="twitter:description" content="《Learn You a Haskell for Great Good!》过了一遍，感觉还是没有上手，于是去找了下看看有没有练手的题目可以实践实践，于是就有了这个。">
+  
+    <link rel="alternative" href="/atom.xml" title="顾小骨的blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.ico">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="/avatar.jpg" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">顾小骨</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">别想太多了，好好看书</p>
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						
+						<li>关于我</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+							<li><a href="/tags/随笔/">随笔</a></li>
+				        
+							<li><a href="/tags/haskell/">Haskell</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="https://github.com/guzheyuan" title="github">github</a>
+					        
+								<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/gu-xiao-gu-30-90" title="zhihu">zhihu</a>
+					        
+								<a class="mail" target="_blank" href="mailto:guzheyuan1991@163.com" title="mail">mail</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/haskell/" style="font-size: 20px;">haskell</a> <a href="/tags/leetcode/" style="font-size: 10px;">leetcode</a> <a href="/tags/随笔/" style="font-size: 10px;">随笔</a>
+					</div>
+				</section>
+				
+				
+				
+
+				
+				
+				<section class="switch-part switch-part3">
+				
+					<div id="js-aboutme">毕业于上海大学-计算机工程与科学，目前在为手游做服务器端开发。会一点JavaScipt，正在学Haskell。</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">顾小骨</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+			
+				<img lazy-src="/avatar.jpg" class="js-avatar">
+			
+			</div>
+			<hgroup>
+			  <h1 class="header-author">顾小骨</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">别想太多了，好好看书</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+					<li><a href="/tags/随笔/">随笔</a></li>
+		        
+					<li><a href="/tags/haskell/">Haskell</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/guzheyuan" title="github">github</a>
+			        
+						<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/gu-xiao-gu-30-90" title="zhihu">zhihu</a>
+			        
+						<a class="mail" target="_blank" href="mailto:guzheyuan1991@163.com" title="mail">mail</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap"><article id="post-ninety_nine_haskell_problems_1" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/08/26/ninety_nine_haskell_problems_1/" class="article-date">
+  	<time datetime="2016-08-26T13:45:00.000Z" itemprop="datePublished">2016-08-26</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Ninety Nine Haskell Problems（一）
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/haskell/">haskell</a></li></ul>
+	</div>
+
+        
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>《Learn You a Haskell for Great Good!》过了一遍，感觉还是没有上手，于是去找了下看看有没有练手的题目可以实践实践，于是就有了这个。<a id="more"></a><br>题目源于这里<a href="https://wiki.haskell.org/H-99:_Ninety-Nine_Haskell_Problems" target="_blank" rel="external">https://wiki.haskell.org/H-99:_Ninety-Nine_Haskell_Problems</a><br>作为学习haskell的练习补充</p>
+<h1 id="Problem-1"><a href="#Problem-1" class="headerlink" title="Problem 1"></a>Problem 1</h1><h2 id="题目："><a href="#题目：" class="headerlink" title="题目："></a>题目：</h2><blockquote>
+<p>难度：*<br>Find the last element of a list.<br>(Note that the Lisp transcription of this problem is incorrect.)</p>
+</blockquote>
+<p>输出一个列表（list）的最后一个元素</p>
+<h2 id="解题思路："><a href="#解题思路：" class="headerlink" title="解题思路："></a>解题思路：</h2><p>不需要思路了，直接上代码吧</p>
+<h2 id="代码："><a href="#代码：" class="headerlink" title="代码："></a>代码：</h2><figure class="highlight haskell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="title">myLast</span> :: [a] -&gt; a</div><div class="line"><span class="title">myLast</span> [] = error <span class="string">"No end for empty lists!"</span></div><div class="line"><span class="title">myLast</span> [x] = x</div><div class="line"><span class="title">myLast</span> (_:xs) = myLast xs</div></pre></td></tr></table></figure>
+<h2 id="运行结果"><a href="#运行结果" class="headerlink" title="运行结果"></a>运行结果</h2><figure class="highlight haskell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">*<span class="type">Main</span>&gt; myLast [<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>]</div><div class="line"><span class="number">7</span></div></pre></td></tr></table></figure>
+<h1 id="Problem-2"><a href="#Problem-2" class="headerlink" title="Problem 2"></a>Problem 2</h1><h2 id="题目：-1"><a href="#题目：-1" class="headerlink" title="题目："></a>题目：</h2><blockquote>
+<p>难度：*<br>Find the last but one element of a list.<br>(Note that the Lisp transcription of this problem is incorrect.)</p>
+</blockquote>
+<p>输出一个列表（list）倒数第二个元素</p>
+<h2 id="解题思路：-1"><a href="#解题思路：-1" class="headerlink" title="解题思路："></a>解题思路：</h2><p>组合last和init</p>
+<h2 id="代码：-1"><a href="#代码：-1" class="headerlink" title="代码："></a>代码：</h2><figure class="highlight haskell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="title">myButLast</span> :: [a] -&gt; a</div><div class="line"><span class="title">myButLast</span> = last . init</div></pre></td></tr></table></figure>
+<h2 id="运行结果-1"><a href="#运行结果-1" class="headerlink" title="运行结果"></a>运行结果</h2><figure class="highlight haskell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">*<span class="type">Main</span>&gt; myButLast [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>]</div><div class="line"><span class="number">3</span></div><div class="line">*<span class="type">Main</span>&gt; myButLast ['a'..'z']</div><div class="line">'y'</div></pre></td></tr></table></figure>
+<h1 id="Problem-3"><a href="#Problem-3" class="headerlink" title="Problem 3"></a>Problem 3</h1><h2 id="题目：-2"><a href="#题目：-2" class="headerlink" title="题目："></a>题目：</h2><blockquote>
+<p>难度：*<br>Find the K’th element of a list. The first element in the list is number 1.</p>
+</blockquote>
+<p>寻找第k个元素</p>
+<h2 id="解题思路：-2"><a href="#解题思路：-2" class="headerlink" title="解题思路："></a>解题思路：</h2><p>遍历list</p>
+<h2 id="代码：-2"><a href="#代码：-2" class="headerlink" title="代码："></a>代码：</h2><figure class="highlight haskell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="title">elementAt</span> :: [a] -&gt; <span class="type">Int</span> -&gt; a</div><div class="line"><span class="title">elementAt</span> (x:_) <span class="number">1</span> = x</div><div class="line"><span class="title">elementAt</span> (_:xs) k </div><div class="line">    | k &lt; <span class="number">1</span> = error <span class="string">"Index out of bounds"</span> </div><div class="line">    | otherwise = elementAt xs (k - <span class="number">1</span>)</div></pre></td></tr></table></figure>
+<h2 id="运行结果-2"><a href="#运行结果-2" class="headerlink" title="运行结果"></a>运行结果</h2><figure class="highlight haskell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">*<span class="type">Main</span>&gt; elementAt [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>] <span class="number">2</span></div><div class="line"><span class="number">2</span></div><div class="line">*<span class="type">Main</span>&gt; elementAt <span class="string">"haskell"</span> <span class="number">5</span></div><div class="line">'e'</div></pre></td></tr></table></figure>
+<h1 id="Problem-4"><a href="#Problem-4" class="headerlink" title="Problem 4"></a>Problem 4</h1><h2 id="题目：-3"><a href="#题目：-3" class="headerlink" title="题目："></a>题目：</h2><blockquote>
+<p>难度：*<br>Find the number of elements of a list.</p>
+</blockquote>
+<p>list的长度</p>
+<h2 id="解题思路：-3"><a href="#解题思路：-3" class="headerlink" title="解题思路："></a>解题思路：</h2><p>用折叠实现</p>
+<h2 id="代码：-3"><a href="#代码：-3" class="headerlink" title="代码："></a>代码：</h2><figure class="highlight haskell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="title">myLength</span> :: [a] -&gt; <span class="type">Int</span></div><div class="line"><span class="title">myLength</span> = foldl (\acc _ -&gt; acc + <span class="number">1</span>) <span class="number">0</span></div></pre></td></tr></table></figure>
+<h2 id="运行结果-3"><a href="#运行结果-3" class="headerlink" title="运行结果"></a>运行结果</h2><figure class="highlight haskell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">*<span class="type">Main</span>&gt; myLength [<span class="number">123</span>, <span class="number">456</span>, <span class="number">789</span>]</div><div class="line"><span class="number">3</span></div><div class="line">*<span class="type">Main</span>&gt; myLength <span class="string">"Hello, world!"</span></div><div class="line"><span class="number">13</span></div></pre></td></tr></table></figure>
+<h1 id="Problem-5"><a href="#Problem-5" class="headerlink" title="Problem 5"></a>Problem 5</h1><h2 id="题目：-4"><a href="#题目：-4" class="headerlink" title="题目："></a>题目：</h2><blockquote>
+<p>难度：*<br>Reverse a list.</p>
+</blockquote>
+<p>转置一个list</p>
+<h2 id="解题思路：-4"><a href="#解题思路：-4" class="headerlink" title="解题思路："></a>解题思路：</h2><p>用折叠实现</p>
+<h2 id="代码：-4"><a href="#代码：-4" class="headerlink" title="代码："></a>代码：</h2><figure class="highlight haskell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="title">myReverse</span> :: [a] -&gt; [a]</div><div class="line"><span class="title">myReverse</span> = foldl (flip (:)) []</div></pre></td></tr></table></figure>
+<h2 id="运行结果-4"><a href="#运行结果-4" class="headerlink" title="运行结果"></a>运行结果</h2><figure class="highlight haskell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">*<span class="type">Main</span>&gt; myReverse <span class="string">"A man, a plan, a canal, panama!"</span></div><div class="line"><span class="string">"!amanap ,lanac a ,nalp a ,nam A"</span></div><div class="line">*<span class="type">Main</span>&gt; myReverse [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>]</div><div class="line">[<span class="number">4</span>,<span class="number">3</span>,<span class="number">2</span>,<span class="number">1</span>]</div></pre></td></tr></table></figure>
+<h1 id="Problem-6"><a href="#Problem-6" class="headerlink" title="Problem 6"></a>Problem 6</h1><h2 id="题目：-5"><a href="#题目：-5" class="headerlink" title="题目："></a>题目：</h2><blockquote>
+<p>难度：*<br>Find out whether a list is a palindrome. A palindrome can be read forward or backward; e.g. (x a m a x).</p>
+</blockquote>
+<h2 id="解题思路：-5"><a href="#解题思路：-5" class="headerlink" title="解题思路："></a>解题思路：</h2><p>递归解决</p>
+<h2 id="代码：-5"><a href="#代码：-5" class="headerlink" title="代码："></a>代码：</h2><figure class="highlight haskell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="title">isPalindrome</span> :: (<span class="type">Eq</span> a) =&gt; [a] -&gt; <span class="type">Bool</span></div><div class="line"><span class="title">isPalindrome</span> [] = <span class="type">True</span></div><div class="line"><span class="title">isPalindrome</span> [_] = <span class="type">True</span></div><div class="line"><span class="title">isPalindrome</span> xs = (head xs) == (last xs) &amp;&amp; (isPalindrome $ init $ tail xs)</div></pre></td></tr></table></figure>
+<h2 id="运行结果-5"><a href="#运行结果-5" class="headerlink" title="运行结果"></a>运行结果</h2><figure class="highlight haskell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">*<span class="type">Main</span>&gt; isPalindrome [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>]</div><div class="line"><span class="type">False</span></div><div class="line">*<span class="type">Main</span>&gt; isPalindrome <span class="string">"madamimadam"</span></div><div class="line"><span class="type">True</span></div><div class="line">*<span class="type">Main</span>&gt; isPalindrome [<span class="number">1</span>,<span class="number">2</span>,<span class="number">4</span>,<span class="number">8</span>,<span class="number">16</span>,<span class="number">8</span>,<span class="number">4</span>,<span class="number">2</span>,<span class="number">1</span>]</div><div class="line"><span class="type">True</span></div></pre></td></tr></table></figure>
+<h1 id="Problem-7"><a href="#Problem-7" class="headerlink" title="Problem 7"></a>Problem 7</h1><h2 id="题目：-6"><a href="#题目：-6" class="headerlink" title="题目："></a>题目：</h2><blockquote>
+<p>难度：**<br>Flatten a nested list structure.<br>Transform a list, possibly holding lists as elements into a `flat’ list by replacing each list with its elements (recursively).</p>
+</blockquote>
+<h2 id="解题思路：-6"><a href="#解题思路：-6" class="headerlink" title="解题思路："></a>解题思路：</h2><p>取每个头元素，把它铺平</p>
+<h2 id="代码：-6"><a href="#代码：-6" class="headerlink" title="代码："></a>代码：</h2><figure class="highlight haskell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">data</span> <span class="type">NestedList</span> a = <span class="type">Elem</span> a | <span class="type">List</span> [<span class="type">NestedList</span> a]</span></div><div class="line"></div><div class="line"><span class="title">flatten</span> :: <span class="type">NestedList</span> a -&gt; [a]</div><div class="line"><span class="title">flatten</span> (<span class="type">Elem</span> a) = [a]</div><div class="line"><span class="title">flatten</span> (<span class="type">List</span> (x:xs)) = flatten x ++ (flatten $ <span class="type">List</span> xs)</div><div class="line"><span class="title">flatten</span> (<span class="type">List</span> []) = []</div></pre></td></tr></table></figure>
+<h2 id="运行结果-6"><a href="#运行结果-6" class="headerlink" title="运行结果"></a>运行结果</h2><figure class="highlight haskell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">*<span class="type">Main</span>&gt; flatten (<span class="type">Elem</span> <span class="number">5</span>)</div><div class="line">[<span class="number">5</span>]</div><div class="line">*<span class="type">Main</span>&gt; flatten (<span class="type">List</span> [<span class="type">Elem</span> <span class="number">1</span>, <span class="type">List</span> [<span class="type">Elem</span> <span class="number">2</span>, <span class="type">List</span> [<span class="type">Elem</span> <span class="number">3</span>, <span class="type">Elem</span> <span class="number">4</span>], <span class="type">Elem</span> <span class="number">5</span>]])</div><div class="line">[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>]</div><div class="line">*<span class="type">Main</span>&gt; flatten (<span class="type">List</span> [])</div><div class="line">[]</div></pre></td></tr></table></figure>
+<h1 id="Problem-8"><a href="#Problem-8" class="headerlink" title="Problem 8"></a>Problem 8</h1><h2 id="题目：-7"><a href="#题目：-7" class="headerlink" title="题目："></a>题目：</h2><blockquote>
+<p>难度：**<br>Eliminate consecutive duplicates of list elements.<br>If a list contains repeated elements they should be replaced with a single copy of the element. The order of the elements should not be changed.</p>
+</blockquote>
+<p>去掉list中连续重复的元素（aaaa变为a）</p>
+<h2 id="解题思路：-7"><a href="#解题思路：-7" class="headerlink" title="解题思路："></a>解题思路：</h2><h2 id="代码：-7"><a href="#代码：-7" class="headerlink" title="代码："></a>代码：</h2><figure class="highlight haskell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="title">compress</span> :: <span class="type">Eq</span> a =&gt; [a] -&gt; [a]</div><div class="line"><span class="title">compress</span> = foldl skip []</div><div class="line">    <span class="keyword">where</span> skip [] x = [x]</div><div class="line">          skip acc x</div><div class="line">                | x == last acc = acc</div><div class="line">                | otherwise = acc ++ [x]</div></pre></td></tr></table></figure>
+<h2 id="运行结果-7"><a href="#运行结果-7" class="headerlink" title="运行结果"></a>运行结果</h2><figure class="highlight haskell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">*<span class="type">Main</span>&gt; compress <span class="string">"aaaabccaadeeee"</span></div><div class="line"><span class="string">"abcade"</span></div></pre></td></tr></table></figure>
+<h1 id="Problem-9"><a href="#Problem-9" class="headerlink" title="Problem 9"></a>Problem 9</h1><h2 id="题目：-8"><a href="#题目：-8" class="headerlink" title="题目："></a>题目：</h2><blockquote>
+<p>难度：**<br>Pack consecutive duplicates of list elements into sublists. If a list contains repeated elements they should be placed in separate sublists.</p>
+</blockquote>
+<p>将连续相同的元素打包</p>
+<h2 id="解题思路：-8"><a href="#解题思路：-8" class="headerlink" title="解题思路："></a>解题思路：</h2><p>foldl遍历list</p>
+<h2 id="代码：-8"><a href="#代码：-8" class="headerlink" title="代码："></a>代码：</h2><figure class="highlight haskell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="title">pack</span> :: <span class="type">Eq</span> a =&gt; [a] -&gt; [[a]]</div><div class="line"><span class="title">pack</span> = foldl func [] </div><div class="line">    <span class="keyword">where</span> func [] e = [[e]]</div><div class="line">          func acc e</div><div class="line">            | (head (last acc)) == e = (init acc) ++ [(last acc) ++ [e]] </div><div class="line">            | otherwise = acc ++ [[e]]</div></pre></td></tr></table></figure>
+<h2 id="运行结果-8"><a href="#运行结果-8" class="headerlink" title="运行结果"></a>运行结果</h2><figure class="highlight haskell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">*<span class="type">Main</span>&gt; pack ['a', 'a', 'a', 'a', 'b', 'c', 'c', 'a']</div><div class="line">[<span class="string">"aaaa"</span>,<span class="string">"b"</span>,<span class="string">"cc"</span>,<span class="string">"a"</span>]</div></pre></td></tr></table></figure>
+<h1 id="Problem-10"><a href="#Problem-10" class="headerlink" title="Problem 10"></a>Problem 10</h1><h2 id="题目：-9"><a href="#题目：-9" class="headerlink" title="题目："></a>题目：</h2><blockquote>
+<p>难度：*<br>Run-length encoding of a list. Use the result of problem P09 to implement the so-called run-length encoding data compression method. Consecutive duplicates of elements are encoded as lists (N E) where N is the number of duplicates of the element E.</p>
+</blockquote>
+<h2 id="解题思路：-9"><a href="#解题思路：-9" class="headerlink" title="解题思路："></a>解题思路：</h2><p>将上题的结果map</p>
+<h2 id="代码：-9"><a href="#代码：-9" class="headerlink" title="代码："></a>代码：</h2><figure class="highlight haskell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="title">encode</span> :: (<span class="type">Eq</span> a) =&gt; [a] -&gt; [(<span class="type">Int</span>,a)]</div><div class="line"><span class="title">encode</span> xs = map (\e -&gt; (length e,head e)) (foldl func [] $ xs)</div><div class="line">    <span class="keyword">where</span> func [] e = [[e]]</div><div class="line">          func acc e</div><div class="line">            | (head (last acc)) == e = (init acc) ++ [(last acc) ++ [e]] </div><div class="line">            | otherwise = acc ++ [[e]]</div></pre></td></tr></table></figure>
+<h2 id="运行结果-9"><a href="#运行结果-9" class="headerlink" title="运行结果"></a>运行结果</h2><figure class="highlight haskell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">*<span class="type">Main</span>&gt; encode <span class="string">"aaaabccaadeeee"</span></div><div class="line">[(<span class="number">4</span>,'a'),(<span class="number">1</span>,'b'),(<span class="number">2</span>,'c'),(<span class="number">2</span>,'a'),(<span class="number">1</span>,'d'),(<span class="number">4</span>,'e')]</div></pre></td></tr></table></figure>
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2016/08/29/summary_2016_8/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          [2016-08] 八月小结
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/08/24/haskell_note_five/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">HASKELL学习笔记（五）</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="ninety_nine_haskell_problems_1" data-title="Ninety Nine Haskell Problems（一）" data-url="http://yoursite.com/2016/08/26/ninety_nine_haskell_problems_1/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"guzheyuan"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2016 顾小骨
+    	</div>
+      	<div class="footer-right">
+      		由 <a href="http://hexo.io/" target="_blank">Hexo</a> 强力驱动
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>
