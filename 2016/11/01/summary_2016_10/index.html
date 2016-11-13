@@ -4,18 +4,18 @@
   <meta charset="utf-8">
   
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <title>《Real World Haskell》 第五章读书笔记 | 顾小骨的blog</title>
+  <title>[2016-10] 十月小结 | 顾小骨的blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="CHAPTER 5：编写 JSON 库">
+  <meta name="description" content="每月一次总结，回顾过去，展望未来。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="《Real World Haskell》 第五章读书笔记">
-<meta property="og:url" content="http://yoursite.com/2016/10/23/real_world_haskell_note_ch5/index.html">
+<meta property="og:title" content="[2016-10] 十月小结">
+<meta property="og:url" content="http://yoursite.com/2016/11/01/summary_2016_10/index.html">
 <meta property="og:site_name" content="顾小骨的blog">
-<meta property="og:description" content="CHAPTER 5：编写 JSON 库">
-<meta property="og:updated_time" content="2016-10-23T11:40:57.873Z">
+<meta property="og:description" content="每月一次总结，回顾过去，展望未来。">
+<meta property="og:updated_time" content="2016-11-13T14:51:25.310Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="《Real World Haskell》 第五章读书笔记">
-<meta name="twitter:description" content="CHAPTER 5：编写 JSON 库">
+<meta name="twitter:title" content="[2016-10] 十月小结">
+<meta name="twitter:description" content="每月一次总结，回顾过去，展望未来。">
   
     <link rel="alternative" href="/atom.xml" title="顾小骨的blog" type="application/atom+xml">
   
@@ -180,11 +180,11 @@
 	</div>
 </nav>
 
-      <div class="body-wrap"><article id="post-real_world_haskell_note_ch5" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-summary_2016_10" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/10/23/real_world_haskell_note_ch5/" class="article-date">
-  	<time datetime="2016-10-23T11:40:00.000Z" itemprop="datePublished">2016-10-23</time>
+      <a href="/2016/11/01/summary_2016_10/" class="article-date">
+  	<time datetime="2016-11-01T11:21:00.000Z" itemprop="datePublished">2016-11-01</time>
 </a>
     </div>
   
@@ -197,7 +197,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      《Real World Haskell》 第五章读书笔记
+      [2016-10] 十月小结
     </h1>
   
 
@@ -206,7 +206,7 @@
       <div class="article-info article-info-post">
         
 	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/haskell/">haskell</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/随笔/">随笔</a></li></ul>
 	</div>
 
         
@@ -217,16 +217,15 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="CHAPTER-5：编写-JSON-库"><a href="#CHAPTER-5：编写-JSON-库" class="headerlink" title="CHAPTER 5：编写 JSON 库"></a>CHAPTER 5：编写 JSON 库</h1><a id="more"></a>
-<h2 id="JSON-简介"><a href="#JSON-简介" class="headerlink" title="JSON 简介"></a>JSON 简介</h2><p>JSON 支持四种基本类型值：字符串、数字、布尔值和一个特殊值， null。<br>JSON 还提供了两种复合类型：<em>数组</em>是值的有序序列，而<em>对象</em>则是“名字/值”对的无序收集器（unordered collection of name/value pairs）。其中对象的名字必须是字符串，而对象和数组的值则可以是任何 JSON 类型。</p>
-<h2 id="在-Haskell-中表示-JSON-数据"><a href="#在-Haskell-中表示-JSON-数据" class="headerlink" title="在 Haskell 中表示 JSON 数据"></a>在 Haskell 中表示 JSON 数据</h2><figure class="highlight haskell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">data</span> <span class="type">JValue</span> = <span class="type">JString</span> <span class="type">String</span></span></div><div class="line">            | <span class="type">JNumber</span> <span class="type">Double</span></div><div class="line">            | <span class="type">JBool</span> <span class="type">Bool</span></div><div class="line">            | <span class="type">JNull</span></div><div class="line">            | <span class="type">JObject</span> [(<span class="type">String</span>, <span class="type">JValue</span>)]</div><div class="line">            | <span class="type">JArray</span> [<span class="type">JValue</span>]</div><div class="line">              <span class="keyword">deriving</span> (<span class="type">Eq</span>, <span class="type">Ord</span>, <span class="type">Show</span>)</div></pre></td></tr></table></figure>
-<h2 id="Haskell-模块"><a href="#Haskell-模块" class="headerlink" title="Haskell 模块"></a>Haskell 模块</h2><figure class="highlight haskell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="comment">-- file: ch05/SimpleJSON.hs</span></div><div class="line"><span class="keyword">module</span> SimpleJSON</div><div class="line">    (</div><div class="line">        <span class="type">JValue(..)</span></div><div class="line">    ,   <span class="title">getString</span></div><div class="line">    ,   <span class="title">getInt</span></div><div class="line">    ,   <span class="title">getDouble</span></div><div class="line">    ,   <span class="title">getBool</span></div><div class="line">    ,   <span class="title">getObject</span></div><div class="line">    ,   <span class="title">getArray</span></div><div class="line">    ,   <span class="title">isNull</span></div><div class="line">    ) <span class="keyword">where</span></div></pre></td></tr></table></figure>
-<h2 id="编译-Haskell-代码"><a href="#编译-Haskell-代码" class="headerlink" title="编译 Haskell 代码"></a>编译 Haskell 代码</h2><p> SimpleJSON.hi是<em>接口文件</em>（interface file）<br> SimpleJSON.o 则是<em>目标文件</em>（object file）</p>
-<h2 id="载入模块和生成可执行文件"><a href="#载入模块和生成可执行文件" class="headerlink" title="载入模块和生成可执行文件"></a>载入模块和生成可执行文件</h2><p>Main.hs的名字和 main函数的命名是有特别含义的，要创建一个可执行文件， ghc 需要一个命名为 Main的模块，并且这个模块里面还要有一个 main函数，而 main函数在程序执行时会被调用。</p>
-<h2 id="打印-JSON-数据"><a href="#打印-JSON-数据" class="headerlink" title="打印 JSON 数据"></a>打印 JSON 数据</h2><p>JSON数据的序列化</p>
-<h2 id="类型推导是一把双刃剑"><a href="#类型推导是一把双刃剑" class="headerlink" title="类型推导是一把双刃剑"></a>类型推导是一把双刃剑</h2><p>为函数编写类型签名，既可以移除我们实际想要的类型和编译器推导出的类型之间的分歧，也可以作为函数的一种文档，帮助阅读和理解函数的行为。<br>在刚开始的时候最好尽可能地为函数添加类型签名，然后随着对类型系统了解的加深，逐步放松要求。</p>
-<h2 id="更通用的转换方式"><a href="#更通用的转换方式" class="headerlink" title="更通用的转换方式"></a>更通用的转换方式</h2><p>使用Prettify库做更好的打印</p>
-<p>参考：<br><a href="http://book.realworldhaskell.org/" target="_blank" rel="external">《Real World Haskell》 Bryan O’Sullivan, Don Stewart, and John Goerzen</a><br><a href="http://cnhaskell.com/chp/2.html" target="_blank" rel="external">《Real World Haskell》 中文翻译项目</a></p>
+        <p>每月一次总结，回顾过去，展望未来。<br><a id="more"></a></p>
+<h2 id="学习"><a href="#学习" class="headerlink" title="学习"></a>学习</h2><p>新工作啊，离职啊，什么的，这个月乱起八糟事情太多了一直没好好看书，反思反思</p>
+<p>《Real World Haskell》第五章<br>读书笔记链接：<a href="http://guzheyuan.me/2016/10/23/real_world_haskell_note_ch5/" target="_blank" rel="external">《Real World Haskell》 读书笔记</a></p>
+<h2 id="工作"><a href="#工作" class="headerlink" title="工作"></a>工作</h2><p>换了新工作！对比之前的公司福利好到爆啊哈哈哈～工作内容和以前变化还是挺大的。</p>
+<h2 id="游戏"><a href="#游戏" class="headerlink" title="游戏"></a>游戏</h2><p>《Fate/Grand Order》终于开服了，肝肝肝。<br>又去回顾了一下《Fate/stay night》UBW，最后集狗粮真是甜到掉牙了</p>
+<h2 id="十一月目标"><a href="#十一月目标" class="headerlink" title="十一月目标"></a>十一月目标</h2><ul>
+<li>《计算广告学》在线课程</li>
+<li>《JavaScript函数式编程》</li>
+</ul>
 
       
     </div>
@@ -236,18 +235,9 @@
     
 <nav id="article-nav">
   
-    <a href="/2016/11/01/summary_2016_10/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption"><</strong>
-      <div class="article-nav-title">
-        
-          [2016-10] 十月小结
-        
-      </div>
-    </a>
   
-  
-    <a href="/2016/09/28/summary_2016_9/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">[2016-09] 九月小结</div>
+    <a href="/2016/10/23/real_world_haskell_note_ch5/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">《Real World Haskell》 第五章读书笔记</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
@@ -263,7 +253,7 @@
 
 <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="real_world_haskell_note_ch5" data-title="《Real World Haskell》 第五章读书笔记" data-url="http://yoursite.com/2016/10/23/real_world_haskell_note_ch5/"></div>
+	<div class="ds-thread" data-thread-key="summary_2016_10" data-title="[2016-10] 十月小结" data-url="http://yoursite.com/2016/11/01/summary_2016_10/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
